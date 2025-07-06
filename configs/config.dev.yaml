@@ -1,0 +1,16 @@
+app:
+  name: Meta Blog
+  mode: dev
+  port: 8080
+
+database:
+  driver: mysql
+  user: root
+  password: 123456
+  host: 127.0.0.1
+  port: 3306
+  name: meta-blog
+  params: charset=utf8mb4&parseTime=true&loc=UTC
+
+logger:
+  level: info
