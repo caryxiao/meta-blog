@@ -11,6 +11,13 @@ database:
   port: 3306
   name: meta-blog
   params: charset=utf8mb4&parseTime=true&loc=UTC
+  max_idle: 10
+  max_conn: 30
+  max_life: 1800
 
 logger:
   level: info
+
+jwt:
+  secret: "your-super-secret-jwt-key-change-in-production"
+  expire_hours: 24

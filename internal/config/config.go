@@ -19,16 +19,25 @@ type Database struct {
 	Port     int    `yaml:"port"`
 	Name     string `yaml:"name"`
 	Params   string `yaml:"params"`
+	MaxConn  int    `yaml:"max_conn"`
+	MaxIdle  int    `yaml:"max_idle"`
+	MaxLife  int    `yaml:"max_life"`
 }
 
 type Logger struct {
 	Level string `yaml:"level"`
 }
 
+type JWT struct {
+	Secret      string `yaml:"secret" mapstructure:"secret"`
+	ExpireHours int    `yaml:"expire_hours" mapstructure:"expire_hours"`
+}
+
 type AppConfig struct {
 	App      App      `yaml:"app"`
 	Database Database `yaml:"database"`
 	Logger   Logger   `yaml:"logger"`
+	JWT      JWT      `yaml:"jwt"`
 }
 
 func (d *Database) GormDSN() string {

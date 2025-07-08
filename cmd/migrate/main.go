@@ -20,7 +20,7 @@ func main() {
 	}
 
 	var action string
-	flag.StringVar(&action, "action", "up", "迁移动作: up / down / force / drop")
+	flag.StringVar(&action, "action", "up", "Migration action: up / down / force / drop")
 	flag.Parse()
 
 	cfg, err := config.LoadConfig(env)
@@ -43,7 +43,7 @@ func main() {
 	case "drop":
 		err = m.Drop()
 	case "force":
-		err = m.Force(1) // 可进一步接受 version 参数
+		err = m.Force(1)
 	default:
 		log.Fatalf("Not support action: %s", action)
 	}
